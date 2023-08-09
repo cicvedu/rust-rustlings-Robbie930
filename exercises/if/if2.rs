@@ -5,13 +5,12 @@
 //
 // Execute `rustlings hint if2` or use the `hint` watch subcommand for a hint.
 
-// I AM NOT DONE
 
 pub fn foo_if_fizz(fizzish: &str) -> &str {
     if fizzish == "fizz" {
-        "foo"
+        "FizzBuzz"
     } else {
-        1
+        ""
     }
 }
 
@@ -34,4 +33,9 @@ mod tests {
     fn default_to_baz() {
         assert_eq!(foo_if_fizz("literally anything"), "baz")
     }
+}
+
+fn main() {  
+    let result = foo_if_fizz("Fizz");  
+    println!("Result: {}", result);  
 }
