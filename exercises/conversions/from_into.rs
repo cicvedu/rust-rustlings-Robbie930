@@ -42,10 +42,28 @@ impl Default for Person {
 
 // I AM NOT DONE
 
+use std::collections::Vec;
+use std::str::FromStr;
+use std::fmt::Display;
+use std::vec::Vec;
+
 impl From<&str> for Person {
     fn from(s: &str) -> Person {
+        let parts: Vec<&str> = if s.is_empty() {
+            vec![Default::default()]
+        } else {
+            s.split(',').collect();
+        };
+        let name = parts[0].trim();
+        let mut age: u32;
+        match name.parse::<usize>() {
+            Ok(a) => age = a,
+            Err(_) => return Default::default(), // Return default person if age parsing fails
+        };
+        Person { name: name.to_string(), age: age } // Return instantiated person with parsed values
     }
 }
+
 
 fn main() {
     // Use the `from` function

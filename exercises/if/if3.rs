@@ -53,3 +53,9 @@ mod tests {
         assert_eq!(animal_habitat("dinosaur"), "Unknown")
     }
 }
+
+fn main() {  
+    let animal = "unknown";  
+    let snake_count = if_else(animal, "snake", 3, "Unknown");  
+    println!("Animal: {}", snake_count);  
+}
